@@ -11,7 +11,6 @@ class Player:
     def change_player(cls):
         if cls.player == "x":
             cls.player = cls.players[1]
-            
         else:
             cls.player = cls.players[0]
         player_label.config(text=f"Current player: {Player.player}")
@@ -50,12 +49,8 @@ def check_draw():
         for column in range(3):
             if buttons[row][column]['text'] == "":
                 draw = False
-
     if draw:
-        end_game_draw()
-
-        
-            
+        end_game_draw()      
 
 # function to test if a player has already placed there, if not then it places itself there
 
@@ -66,7 +61,6 @@ def place(player, row, column):
     check_win(row, column)
     check_draw()
     Player.change_player()
-
 
 # a simple loop to generate the buttons (the grid), you can change size by editing the row range value or column range value
 def create_board(buttons, frame):
@@ -83,7 +77,6 @@ def restart():
         for column in range(3):
             buttons[row][column]['text'] = ""
     Player.end = False
-
 
 window = Tk()
 window.title("Tic-Tac-Toe")
